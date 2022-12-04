@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-            catchError(message:'If build fails iw want to continue nextstages') {
+            catchError(message:'If build fails iw want to continue nextstages',buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
               bat "Hello world" 
             }
             }
